@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <button id="createBoard">Create Board</button>
+        <div id="container">
+        </div>
+    </body>
+    <script>
+        const container = document.querySelector("#container");
+        const newBoard = document.querySelector('#createBoard');
+        let rowSize = 16;
+        let columnSize = 16;
+        let boardSize = rowSize * columnSize;
+        console.log(boardSize);
+
+        function createRow() {
+            for(let i=0; i<boardSize; i++) {
+               if(i<=16) {
+                   let newRow = document.createElement('div');
+                   newRow.classList.add('grid-row');
+                   container.appendChild(newRow);
+               }
+            }
+        }
+        function createColumn() {
+            for(let i=0; i<boardSize; i++) {
+               if(i<=16) {
+                   let newCol = document.createElement('div');
+                   newCol.classList.add('grid-column');
+                   container.appendChild(newCol);
+                   console.log(i);
+               }
+            }
+        }
+        newBoard.addEventListener('click', function() {
+            createRow();
+            createColumn();
+        });
+    </script>
+</html>
