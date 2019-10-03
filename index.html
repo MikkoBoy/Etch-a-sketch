@@ -6,39 +6,47 @@
     </head>
     <body>
         <button id="createBoard">Create Board</button>
-        <div id="container">
+        <div id="container" class="container">
         </div>
     </body>
     <script>
         const container = document.querySelector("#container");
         const newBoard = document.querySelector('#createBoard');
-        let rowSize = 16;
-        let columnSize = 16;
-        let boardSize = rowSize * columnSize;
-        console.log(boardSize);
+        let gridSize = 16;
+        //let rows = document.getElementsByClassName('grid-row');
+        //let columnSize = 16;
+        //let boardSize = 16;
 
-        function createRow() {
-            for(let i=0; i<boardSize; i++) {
-               if(i<=16) {
+        function createGrid() {
+            container.style.setProperty("--rowNum", gridSize);
+            container.style.setProperty("--colNum", gridSize);
+            for(x=0; x<gridSize; x++) {
+                for(i=0; i<gridSize; i++) {
+                    let cells = document.createElement('div');
+                    cells.classList.add('grid-cell');
+                    container.appendChild(cells);
+                }
+            }
+        }
+        
+
+        /*function createRows(rowNum) {
+            for(y=0; y<rowNum; y++) {
                    let newRow = document.createElement('div');
                    newRow.classList.add('grid-row');
                    container.appendChild(newRow);
                }
             }
-        }
-        function createColumn() {
-            for(let i=0; i<boardSize; i++) {
-               if(i<=16) {
-                   let newCol = document.createElement('div');
-                   newCol.classList.add('grid-column');
-                   container.appendChild(newCol);
-                   console.log(i);
-               }
+        
+        function createColumn(colNum) {
+            for(x=0; x<rows.length; x++) {
+                for(i=0; i<colNum; i++) {
+                    let newCol = document.createElement('div');
+                    newCol.classList.add('grid-cell');
+                    rows[i].appendChild(newCol);
+                }
             }
-        }
-        newBoard.addEventListener('click', function() {
-            createRow();
-            createColumn();
-        });
+        }*/
+        newBoard.addEventListener('click', createGrid);
     </script>
 </html>

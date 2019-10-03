@@ -1,6 +1,15 @@
-.grid-row {
-    background-color: #fff;
-    border-style: solid;
+.container {
+    display: grid;
+    grid-template-columns: repeat(var(--colNum), 20px);
+	grid-template-rows: repeat(var(--rowNum), 20px);
+}
+.grid-cell {
+    border: 1px solid gray;
     width: 20px;
     height: 20px;
+    display: inline-block;
+}
+
+.grid-row {
+    /*height: 20px;*/
 }
